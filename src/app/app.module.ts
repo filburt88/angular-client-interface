@@ -20,6 +20,7 @@ import { HistoryDataTableComponent } from './components/history-data-table/histo
 import { RouterModule } from '@angular/router';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

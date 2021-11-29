@@ -1,26 +1,29 @@
-<main class="main-container">
+<main class="main-container, styler">
+    <mat-toolbar class="login-toolbar">
+        <span class="login-title">Todo IT</span>
+    </mat-toolbar>
 
     <h2>Ingresa a tu <br><span style="color:#E73651;">Cuenta</span></h2>
 
-    <div class="form-container">
-        <form class="form-fields" [formGroup]="loginform" autocomplete="off">
-            <mat-form-field>
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email" placeholder="Email" required>
-                <mat-icon matSuffix>person</mat-icon>
-                <mat-error>Este campo es obligatorio</mat-error>
-            </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>Password</mat-label>
-                <input type="password" matInput formControlName="password" placeholder="Contraseña" required>
-                <mat-icon matSuffix>lock</mat-icon>
-                <mat-error>Este campo es obligatorio</mat-error>
-            </mat-form-field>
+    <form class="form-fields" [formGroup]="loginform" autocomplete="off">
+         <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Email" required>
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
 
-            <button routerLink="/inicio" class="boton-orden" mat-raised-button style="background-color:#E73651">Login</button>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password"  placeholder="Contraseña" required>
+            <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
 
-        </form>
-    </div>
+        <button routerLink="/inicio" [disabled]="!loginform.valid" class="boton-orden" mat-raised-button style="background-color:#E73651">Login</button>
+
+    </form>
+
+
+
 
 </main>
