@@ -1,1 +1,52 @@
-<p>ordenar-viaje works!</p>
+<main class="main-container">
+
+    <h2>Solicitar retiro de <br><span style="color:#E73651;">Equipo</span></h2>
+
+    <div class="form-container">
+        <form class="form-fields" [formGroup]="orderForm" autocomplete="off">
+            <mat-form-field>
+                <mat-label> Marca De Su Equipo </mat-label>
+                <input matInput formControlName="marca" placeholder="Marca" required>
+                <mat-icon matSuffix>sell</mat-icon>
+                <mat-error>Este campo es obligatorio</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label> Modelo De Su Equipo </mat-label>
+                <input matInput formControlName="modelo" placeholder="Modelo" required>
+                <mat-icon matSuffix>style</mat-icon>
+                <mat-error>Este campo es obligatorio</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label> Dirección De Retiro </mat-label>
+                <input matInput formControlName="direccion" placeholder="Dirección" required>
+                <mat-icon matSuffix>home</mat-icon>
+                <mat-error>Este campo es obligatorio</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label> Fecha De Retiro </mat-label>
+                <input  type="date" matInput formControlName="fecha" placeholder="Fecha" required>
+                <mat-error>Este campo es obligatorio</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label> Horario De Retiro </mat-label>
+                <input type="time" matInput formControlName="horario" placeholder="Horario" required>
+                <mat-error>Este campo es obligatorio</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label> Falla Del Equipo </mat-label>
+                <textarea  matInput formControlName="falla" placeholder="Falla De Su Equipo" required></textarea>
+                <mat-icon matSuffix>build</mat-icon>
+                <mat-error>Este campo es obligatorio</mat-error>
+            </mat-form-field>
+
+            <button class="boton-orden" [disabled]="!orderForm.valid" mat-raised-button style="background-color:#E73651">Solicitar Retiro</button>
+
+        </form>
+    </div>
+
+</main>

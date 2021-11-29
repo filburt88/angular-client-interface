@@ -11,6 +11,12 @@ import { MaterialModule } from './material/material.module';
 import { OrdenarViajeComponent } from './pages/ordenar-viaje/ordenar-viaje.component';
 import { EstadoViajesComponent } from './pages/estado-viajes/estado-viajes.component';
 import { HistorialViajesComponent } from './pages/historial-viajes/historial-viajes.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DataTableComponent } from './components/data-table/data-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 @NgModule({
   declarations: [
@@ -20,13 +26,18 @@ import { HistorialViajesComponent } from './pages/historial-viajes/historial-via
     LoginComponent,
     OrdenarViajeComponent,
     EstadoViajesComponent,
-    HistorialViajesComponent
+    HistorialViajesComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
