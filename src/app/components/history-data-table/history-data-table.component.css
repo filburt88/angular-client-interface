@@ -1,0 +1,16 @@
+.full-width-table {
+  width: 80%;
+  margin: 30px;
+  padding: 20px;
+}
+
+.header-table{
+  min-width: 100px;
+  color: #E73651;
+  font-weight: bold;
+}
+
+.paginator-container{
+  display: flex;
+  justify-content: center;
+}

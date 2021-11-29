@@ -16,6 +16,8 @@ import { DataTableComponent } from './components/data-table/data-table.component
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { HistoryDataTableComponent } from './components/history-data-table/history-data-table.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { MatSortModule } from '@angular/material/sort';
     OrdenarViajeComponent,
     EstadoViajesComponent,
     HistorialViajesComponent,
-    DataTableComponent
+    DataTableComponent,
+    HistoryDataTableComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { MatSortModule } from '@angular/material/sort';
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
