@@ -1,0 +1,22 @@
+<header>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span>Todo It</span>
+          <span class="spacer"></span>
+          <button mat-icon-button class="icon" aria-label="icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-tab-group mat-align-tabs="center" color="accent">
+        <mat-tab label="Ordenar Viaje">
+            <app-ordenar-viaje></app-ordenar-viaje>
+        </mat-tab>
+        <mat-tab label="Estado De Viajes">
+            <app-estado-viajes></app-estado-viajes>
+        </mat-tab>
+        <mat-tab label="Historial De Viajes">
+            <app-historial-viajes></app-historial-viajes>
+        </mat-tab>
+      </mat-tab-group>
+</header>
