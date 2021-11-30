@@ -18,6 +18,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { HistoryDataTableComponent } from './components/history-data-table/history-data-table.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -42,7 +43,8 @@ import { RouterModule } from '@angular/router';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

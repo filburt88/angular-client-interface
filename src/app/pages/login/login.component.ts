@@ -1,22 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { User } from 'src/app/models/user';
+import { LoginserviceService } from 'src/app/services/loginservice.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  loginform = new FormGroup({
+   loginform = new FormGroup({
     email : new FormControl('', Validators.required),
-    password : new FormControl('', [Validators.required]),
-  })
+    password : new FormControl('', Validators.required),
+  }) 
 
-  constructor() { }
+  
+  constructor(private loginservice: LoginserviceService ) { }
+
+  user:User = {
+    email: '',
+    password: '',
+  }
 
 
-  ngOnInit(): void {
+
+    login(){
+      this.user = this.loginform.value
+      console.log(this.user.email)
+      this.loginservice.login (this.user.email, this.user.password).subscribe(  resp => {
+      console.log(resp);
+      localStorage.setItem('userLoged', JSON.stringify(this.user.email));
+      let email = localStorage.getItem('UserLoged');
+      console.log(email);
+    } )
   }
 
 }
