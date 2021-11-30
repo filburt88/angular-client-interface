@@ -23,15 +23,13 @@ export class LoginComponent {
     password: '',
   }
 
-
-
     login(){
       this.user = this.loginform.value
       console.log(this.user.email)
       this.loginservice.login (this.user.email, this.user.password).subscribe(  resp => {
       console.log(resp);
-      localStorage.setItem('userLoged', JSON.stringify(this.user.email));
-      let email = localStorage.getItem('UserLoged');
+      localStorage.setItem('userLogued', JSON.stringify(resp.id));
+      let email = localStorage.getItem('UserLogued');
       console.log(email);
     } )
   }
