@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { LoginserviceService } from 'src/app/services/loginservice.service';
 
@@ -16,7 +17,7 @@ export class LoginComponent {
   }) 
 
   
-  constructor(private loginservice: LoginserviceService ) { }
+  constructor(private loginservice: LoginserviceService, private route : Router ) { }
 
   user:User = {
     email: '',
@@ -28,9 +29,8 @@ export class LoginComponent {
       console.log(this.user.email)
       this.loginservice.login (this.user.email, this.user.password).subscribe(  resp => {
       console.log(resp);
-      localStorage.setItem('userLogued', JSON.stringify(resp.id));
-      let email = localStorage.getItem('UserLogued');
-      console.log(email);
+      localStorage.setItem('userLogued', JSON.stringify(resp));
+      this.route.navigate(['/inicio'])
     } )
   }
 

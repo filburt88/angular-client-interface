@@ -10,7 +10,7 @@
             <mat-icon>menu</mat-icon>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item><mat-icon class="toolbar-icon">help</mat-icon>Ayuda</button>
-                <button routerLink="/login" mat-menu-item><mat-icon class="toolbar-icon">logout</mat-icon>Cerrar Sesión</button>
+                <button (click)="clearStorage()" routerLink="/login" mat-menu-item><mat-icon class="toolbar-icon">logout</mat-icon>Cerrar Sesión</button>
               </mat-menu>
           </button>
         </mat-toolbar-row>
