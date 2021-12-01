@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { Travel } from '../../models/travel';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-ordenar-viaje',
@@ -9,17 +11,33 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class OrdenarViajeComponent implements OnInit {
 
   orderForm = new FormGroup({
-    marca : new FormControl('', Validators.required),
-    modelo : new FormControl('', [Validators.required]),
-    falla : new FormControl('', Validators.required),
-    direccion : new FormControl('', Validators.required),
-    fecha : new FormControl('', Validators.required),
-    horario : new FormControl('', Validators.required)
+    mark : new FormControl('', Validators.required),
+    model : new FormControl('', [Validators.required]),
+    failure : new FormControl('', Validators.required),
   })
 
-  constructor() { }
+  constructor(private travel:OrderService) { }
+
+  order:Travel = {
+    clientId: 0,
+    mark: '',
+    model: '',
+    failure: ''
+  }
+
 
   ngOnInit(): void {
+  }
+
+  registrarTravel():void{
+    this.order = this.orderForm.value;
+    console.log(this.order)
+    this.order.clientId = Number(localStorage.getItem('userLogued'))
+    this.travel.save(this.order).subscribe( resp => {
+      console.log(resp)
+      
+    });
+    this.orderForm.reset()
   }
 
 }

@@ -29,9 +29,14 @@ export class LoginComponent {
       console.log(this.user.email)
       this.loginservice.login (this.user.email, this.user.password).subscribe(  resp => {
       console.log(resp);
-      localStorage.setItem('userLogued', JSON.stringify(resp));
+/*       let userlogueado : User = {
+        email : resp.email,
+        id : resp.id
+
+      }  COMO HACER PARA TENER UN OBJETO PARA TODOS LOS COMPONENTES  */
+      localStorage.setItem('userLogued', JSON.stringify(resp.id));
       this.route.navigate(['/inicio'])
     } )
-  }
+  } 
 
 }

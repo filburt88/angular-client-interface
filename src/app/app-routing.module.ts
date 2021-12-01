@@ -5,6 +5,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
+  { path: '', component: LoginComponent},
   { path: 'inicio', canActivate: [AuthGuard], component: InicioComponent},
   { path: 'login', component: LoginComponent}
 ];
