@@ -20,6 +20,7 @@ import { HistoryDataTableComponent } from './components/history-data-table/histo
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { StatusDatatableComponent } from './components/status-datatable/status-datatable.component';
+import { HistoryDatatableComponent } from './components/history-datatable/history-datatable.component';
 
 
 
@@ -34,7 +35,8 @@ import { StatusDatatableComponent } from './components/status-datatable/status-d
     HistorialViajesComponent,
     DataTableComponent,
     HistoryDataTableComponent,
-    StatusDatatableComponent
+    StatusDatatableComponent,
+    HistoryDatatableComponent
   ],
   imports: [
     BrowserModule,
