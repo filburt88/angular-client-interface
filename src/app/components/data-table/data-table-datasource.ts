@@ -15,13 +15,8 @@ export interface DataTableItem {
 }
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: DataTableItem[] = [
+const DATA: DataTableItem[] = [
   {fecha:'15/01/2020', marca: 'Samsung', modelo:'A20', estadoDelEquipo:'Reparado', estadoDelEnvio:'Recibido'},
-  {fecha:'15/01/2020', marca: 'Nokia', modelo:'N10', estadoDelEquipo:'Reparado', estadoDelEnvio:'Recibido'},
-  {fecha:'15/01/2020', marca: 'LG', modelo:'K50', estadoDelEquipo:'Reparado', estadoDelEnvio:'Recibido'},
-  {fecha:'15/01/2020', marca: 'Motorola', modelo:'C110', estadoDelEquipo:'Reparado', estadoDelEnvio:'Recibido'},
-  {fecha:'08/10/2020', marca: 'Hp', modelo:'T115', estadoDelEquipo:'Reparado', estadoDelEnvio:'Recibido'},
-  {fecha:'20/02/2020', marca: 'Apple', modelo:'Iphone XI', estadoDelEquipo:'Reparado', estadoDelEnvio:'Recibido'},
 ];
 
 /**
@@ -30,9 +25,10 @@ const EXAMPLE_DATA: DataTableItem[] = [
  * (including sorting, pagination, and filtering).
  */
 export class DataTableDataSource extends DataSource<DataTableItem> {
-  data: DataTableItem[] = EXAMPLE_DATA;
+  data: DataTableItem[] = DATA;
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
+
 
   constructor() {
     super();

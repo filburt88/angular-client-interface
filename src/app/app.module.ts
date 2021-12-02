@@ -19,6 +19,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { HistoryDataTableComponent } from './components/history-data-table/history-data-table.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { StatusDatatableComponent } from './components/status-datatable/status-datatable.component';
 
 
 
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     EstadoViajesComponent,
     HistorialViajesComponent,
     DataTableComponent,
-    HistoryDataTableComponent
+    HistoryDataTableComponent,
+    StatusDatatableComponent
   ],
   imports: [
     BrowserModule,

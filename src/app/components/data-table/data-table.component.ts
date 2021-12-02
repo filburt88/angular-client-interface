@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 
 @Component({
@@ -21,6 +21,7 @@ export class DataTableComponent implements AfterViewInit {
   constructor() {
     this.dataSource = new DataTableDataSource();
   }
+  
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
@@ -28,5 +29,4 @@ export class DataTableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
-  
 }

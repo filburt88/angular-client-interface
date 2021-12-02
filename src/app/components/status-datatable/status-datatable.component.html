@@ -1,0 +1,31 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="mark">
+      <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.mark}} </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="model">
+      <mat-header-cell *matHeaderCellDef> Modelo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.model}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="statusTravel">
+        <mat-header-cell *matHeaderCellDef> Estado Del Viaje </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[0].statusTravel}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="statusEquipment">
+        <mat-header-cell *matHeaderCellDef> Estado Del Equipo </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[0].statusTravel}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[0].operationDate.slice(0,10)}} </mat-cell>
+      </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>

@@ -1,5 +1,5 @@
 export interface Travel {
-    clientId?:any,
+    clientId?:number,
     mark:string,
     model:string,
     failure:string
