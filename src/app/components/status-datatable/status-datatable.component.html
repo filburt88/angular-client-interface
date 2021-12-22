@@ -14,12 +14,12 @@
 
     <ng-container matColumnDef="statusTravel" class="header-table">
         <mat-header-cell *matHeaderCellDef class="header-table"> Estado Del Viaje </mat-header-cell>
-        <mat-cell *matCellDef="let element" > {{element.travelEquipmentDTOs[0].statusTravel}} </mat-cell>
+        <mat-cell *matCellDef="let element" > {{element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].statusTravel | statusTravelPipe}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="statusEquipment" class="header-table">
         <mat-header-cell *matHeaderCellDef class="header-table"> Estado Del Equipo </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[0].statusTravel}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].statusTravel | statusEquipment}} </mat-cell>
       </ng-container>
   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

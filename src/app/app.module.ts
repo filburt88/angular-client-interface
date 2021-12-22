@@ -21,6 +21,8 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { StatusDatatableComponent } from './components/status-datatable/status-datatable.component';
 import { HistoryDatatableComponent } from './components/history-datatable/history-datatable.component';
+import { StatusTravelPipe } from './pipes/status-travel.pipe';
+import { StatusEquipmentPipe } from './pipes/status-equipment.pipe';
 
 
 
@@ -36,7 +38,9 @@ import { HistoryDatatableComponent } from './components/history-datatable/histor
     DataTableComponent,
     HistoryDataTableComponent,
     StatusDatatableComponent,
-    HistoryDatatableComponent
+    HistoryDatatableComponent,
+    StatusTravelPipe,
+    StatusEquipmentPipe
   ],
   imports: [
     BrowserModule,

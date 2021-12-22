@@ -11,7 +11,7 @@ export class StatusTableService {
   constructor(private http:HttpClient) { }
   
   estadodelviaje(){
-    return this.http.get<StatusTravel>(`/api/Equipment?clientId=${localStorage.getItem('userLogued')}`)
+    return this.http.get<StatusTravel[]>(`/api/Equipment?clientId=${localStorage.getItem('userLogued')}`)
   }
   
 }
