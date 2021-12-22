@@ -34,8 +34,8 @@ export class OrdenarViajeComponent implements OnInit {
     console.log(this.order)
     this.order.clientId = Number(localStorage.getItem('userLogued'))
     this.travel.save(this.order).subscribe( resp => {
-      console.log(resp)
-      
+      alert("Su Orden ha sido Registrada")
+      localStorage.setItem('viajeEnviado', 'true')
     });
     this.orderForm.reset()
   }

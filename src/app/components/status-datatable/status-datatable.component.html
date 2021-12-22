@@ -1,3 +1,4 @@
+
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="full-table">
     <!-- Position Column -->
     <ng-container matColumnDef="mark">
@@ -20,8 +21,9 @@
         <mat-header-cell *matHeaderCellDef class="header-table"> Estado Del Equipo </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[0].statusTravel}} </mat-cell>
       </ng-container>
-
   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+</mat-table>
+
+  

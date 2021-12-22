@@ -1,27 +1,36 @@
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
     <!-- Position Column -->
-    <ng-container matColumnDef="mark">
+    <ng-container matColumnDef="mark" class="tabla">
       <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.mark}} </mat-cell>
     </ng-container>
   
     <!-- Name Column -->
-    <ng-container matColumnDef="model">
+    <ng-container matColumnDef="model" class="tabla">
       <mat-header-cell *matHeaderCellDef> Modelo </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.model}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="statusTravel">
+    <ng-container matColumnDef="statusTravel" class="tabla">
         <mat-header-cell *matHeaderCellDef> Estado Del Viaje </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[0].statusTravel}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="statusEquipment">
+      <ng-container matColumnDef="statusEquipment" class="tabla">
         <mat-header-cell *matHeaderCellDef> Estado Del Equipo </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[0].statusTravel}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="date">
+      <ng-container matColumnDef="date" class="tabla">
         <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[0].operationDate.slice(0,10)}} </mat-cell>
       </ng-container>
