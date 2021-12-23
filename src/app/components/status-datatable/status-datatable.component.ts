@@ -1,10 +1,8 @@
-import { Component, OnInit, OnChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StatusTableService } from 'src/app/services/status-table.service';
 import { StatusTravel } from '../../models/statustravel';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-
-
 
 
 
@@ -26,24 +24,24 @@ export class StatusDatatableComponent implements OnInit {
 
   constructor(private status:StatusTableService ) { }
 
+  refresh(){
+    this.status.estadodelviaje().subscribe(resp =>{
+      for(let viaje of resp){
+        this.datoslista.push(viaje);
+      }
+      this.datoslista.reverse()
+    })
+    this.dataSource = new MatTableDataSource(this.datoslista);
+    this.dataSource.paginator = this.paginator;
+  }
+
   ngOnInit(){
     this.status.estadodelviaje().subscribe(resp =>{
       for(let viaje of resp){
         this.datoslista.push(viaje);
       }
-      console.log(this.datoslista)
+      this.datoslista.reverse()
       this.dataSource.paginator = this.paginator;
     })
   }
-
-/*   ngOnChanges() {
-    if(localStorage.getItem('viajeEnviado') ){
-      console.log(localStorage.getItem('viajeEnviado'))
-      this.status.estadodelviaje().subscribe(resp =>{
-        let respuesta = JSON.stringify(resp)
-        JSON.parse(respuesta);
-        this.dataSource = JSON.parse(respuesta)
-      })
-    }
-  } */
 }

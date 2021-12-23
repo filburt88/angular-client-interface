@@ -23,6 +23,7 @@ import { StatusDatatableComponent } from './components/status-datatable/status-d
 import { HistoryDatatableComponent } from './components/history-datatable/history-datatable.component';
 import { StatusTravelPipe } from './pipes/status-travel.pipe';
 import { StatusEquipmentPipe } from './pipes/status-equipment.pipe';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -52,7 +53,8 @@ import { StatusEquipmentPipe } from './pipes/status-equipment.pipe';
     MatPaginatorModule,
     MatSortModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { LoginserviceService } from 'src/app/services/loginservice.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -26,16 +27,15 @@ export class LoginComponent {
 
     login(){
       this.user = this.loginform.value
-      console.log(this.user.email)
       this.loginservice.login (this.user.email, this.user.password).subscribe(  resp => {
-      console.log(resp);
-/*       let userlogueado : User = {
-        email : resp.email,
-        id : resp.id
-
-      }  COMO HACER PARA TENER UN OBJETO PARA TODOS LOS COMPONENTES  */
       localStorage.setItem('userLogued', JSON.stringify(resp.id));
       this.route.navigate(['/inicio'])
+    }, (error) =>{
+      Swal.fire(
+        'Error en el Ingreso',
+        'Verifica los datos ingresados',
+        'error'
+      )
     } )
   } 
 

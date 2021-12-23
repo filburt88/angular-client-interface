@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { Travel } from '../../models/travel';
 import { OrderService } from '../../services/order.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ordenar-viaje',
@@ -34,7 +35,11 @@ export class OrdenarViajeComponent implements OnInit {
     console.log(this.order)
     this.order.clientId = Number(localStorage.getItem('userLogued'))
     this.travel.save(this.order).subscribe( resp => {
-      alert("Su Orden ha sido Registrada")
+      Swal.fire(
+        'Excelente',
+        'Su orden ha sido registrada',
+        'success'
+      )
       localStorage.setItem('viajeEnviado', 'true')
     });
     this.orderForm.reset()

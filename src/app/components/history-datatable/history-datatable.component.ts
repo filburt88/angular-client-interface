@@ -1,7 +1,8 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { StatusTableService } from 'src/app/services/status-table.service';
 import { StatusTravel } from '../../models/statustravel';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 const datoslista: StatusTravel[] = [
 
@@ -14,28 +15,37 @@ const datoslista: StatusTravel[] = [
 })
 export class HistoryDatatableComponent implements OnInit {
 
-  
+  @ViewChild(MatPaginator) paginator!: MatPaginator;  
 
   displayedColumns: string[] = ['mark', 'model', 'statusTravel', 'statusEquipment', 'date'];
 
  constructor(private status:StatusTableService ) { }
-  dataSource =  new MatTableDataSource<StatusTravel>(undefined)
+  datosLista:StatusTravel[] = []
+  dataSource =  new MatTableDataSource<StatusTravel>(this.datosLista)
 
 
   
   ngOnInit(): void {
     this.status.estadodelviaje().subscribe(resp =>{
-      let respuesta = JSON.stringify(resp)
-      JSON.parse(respuesta);
-      this.dataSource = JSON.parse(respuesta)
-      
+      for(let viaje of resp){
+        if(viaje.travelEquipmentDTOs[viaje.travelEquipmentDTOs.length - 1].statusTravel === 5 || viaje.travelEquipmentDTOs[viaje.travelEquipmentDTOs.length - 1].statusTravel === 8){
+        this.datosLista.push(viaje);
+        }
+      }
+      this.datosLista.reverse()
+      this.dataSource.paginator = this.paginator;
     })
-    
   }
-ngAfterViewInit(){}
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  refresh(){
+    this.status.estadodelviaje().subscribe(resp =>{
+      for(let viaje of resp){
+        this.datosLista.push(viaje);
+      }
+      this.datosLista.reverse()
+    })
+    this.dataSource = new MatTableDataSource(this.datosLista);
+    this.dataSource.paginator = this.paginator;
   }
 
 }
